@@ -17,3 +17,6 @@
 # BlueBerry FlashBack Pro 4
 
 # Teleport Ultra
+
+# Snipaste
+
