@@ -1,5 +1,3 @@
 # quiet-space
 
-我在这里悄悄地进行GitGub使用相关的测试，不想打扰任何人 : )
-
-* 在GitHub中引用图片的测试 [picture-reference.md](/folder/next/picture-reference.md)
+这是我的小小空间，不想打扰任何人 : )
