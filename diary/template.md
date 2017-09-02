@@ -1,3 +1,5 @@
+Date: YYYY-MM-DD
+
 # Day X Title
 
 Speak out your mind.
