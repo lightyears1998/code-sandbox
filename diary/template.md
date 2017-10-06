@@ -11,4 +11,3 @@ Speak out your mind.
 - [ ] 技能
 - [ ] 语文
 - [ ] 数学
-- [ ] 书法
