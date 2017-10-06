@@ -1,7 +1,7 @@
 # 知识
 
 《ACM 知识与入门》
-《PHOTOSHOP》
+《PHOTOSHOP核心应用5项修炼》
 
 待看：
 《ACM 算法与实现》
@@ -29,7 +29,7 @@
 《Java编程思想》
 《算法设计与分析——以ACM在线题库为例》
 《CLR via C#》
-《VC#》
+《Visual C#》
 《鸟哥Linux1》
 《鸟哥Linux2》
 《计算机网络》
