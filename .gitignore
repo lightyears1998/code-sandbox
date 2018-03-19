@@ -1,2 +1,5 @@
-# Windows缩略图
+﻿# Windows缩略图
 Thumbs.db
+
+# 可执行文件
+*.exe
