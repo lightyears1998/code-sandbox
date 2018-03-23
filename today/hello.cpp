@@ -1,36 +1,47 @@
 #include <bits/stdc++.h>
 using namespace std;
 using LL = long long;
+ 
+const int maxN = 1000100;
 
-const int maxN = 100;
-
-LL num[maxN];
-
-int lowbit(int x) {
-	return x &= -x;
+bool digit[maxN][10]; 
+LL nonrep[maxN];
+ 
+bool check(LL num)
+{   
+    while (num) {
+        int cur = num%10;
+        if (digit[cur]) return false;
+        digit[cur] = true;
+        num /= 10;
+    }
+    return true;
 }
-
-void add(LL *bit, int x, LL val) {
-	while (x < maxN) {
-		bit[x] += val;
-		x += lowbit(x);
-	}
+ 
+void build()
+{   
+    LL base = 1, gap = 0, tail = 0;
+    while (tail<maxN) {
+        for (int i=1; i<10 && tail<maxN; ++i)
+        {
+            for (int j=0; j<=gap && tail<maxN; ++j) 
+            {
+                if (check(i, nonrep[j]))
+                    nonrep[++tail] = i*base+nonrep[j];
+            }
+        } 
+        base *= 10, gap = tail;
+    }
 }
-
-LL get(LL *bit, int x) {
-	LL rslt = 0;
-	while (x) {
-		rslt += bit[x];
-		x -= lowbit(x);
-	}
-	return rslt;
-}
-
+ 
 int main()
-{
-	add(num, 1, 100);
-	add(num, 2, 1000);
-	add(num, 3 , -110);
-	add(num, 10, 99);
-	cout << get(num, 90) << endl;
+{   
+    build();
+     
+    int T; scanf("%d", &T);
+    while (T--)
+    {
+        int n; scanf("%d", &n);
+        printf("%lld\n", nonrep[n]);
+    }
 }
