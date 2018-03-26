@@ -1,0 +1,85 @@
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+#include <bits/stdc++.h>
+
+using namespace std;
+using namespace std;
+using namespace std;
+using namespace std;
+using namespace std;
+using namespace std;
+using namespace std;
+using namespace std;
+using namespace std;
+using namespace std;
+using namespace std;
+using namespace std;
+
+int main()
+int main()
+int main()
+int main()
+int main()
+int main()
+int main()
+int main()
+int main()
+int main()
+int main()
+
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl; 
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl;
+cout << endl;
+
+printf()
+printf()
+printf()
+printf()
+printf()
+printf()
+printf()
+printf()
+printf()
+printf()
+printf()
+
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
+scanf()
