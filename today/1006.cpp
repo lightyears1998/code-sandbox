@@ -23,13 +23,15 @@ void lcs()
 void print()
 {
 	string ans;
-	int i = a.size()+1, j = b.size()+1;
+	
+	unsigned i = a.size(), j = b.size();
 	while (i && j) {
 		if (a[i-1] == b[j-1]) ans.push_back(a[i-1]), --i, --j;
 		else if (dp[i][j] == dp[i][j-1]) --j;
 		else --i;
-	}
+	} 
 	reverse(ans.begin(), ans.end());
+	
 	cout << ans << endl;
 }
 
