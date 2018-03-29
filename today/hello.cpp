@@ -1,44 +1,41 @@
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
-class Imaginary
+class Time
 {
 private:
-	double x, y;
+	int hh, mm;
 public:
-	Imaginary(double x, double y) {
-		this->x = x, this->y = y; 
+	Time(const int hour = 0, const int minute = 0) {
+		hh = hour, mm = minute;
+		if (mm >= 60) hh++, mm%=60;
+		if (hh >= 24) hh %= 24; 
 	}
-	friend Imaginary add(const Imaginary &, const Imaginary&);
-	friend Imaginary sub(const Imaginary &, const Imaginary&);
-	friend Imaginary mul(const Imaginary &, const Imaginary&);
-	friend Imaginary div(const Imaginary &, const Imaginary&); 
-	static void show(const Imaginary &i) {
-		cout << i.x << '+' << i.y << 'i' << endl;
+	
+	Time operator +(const Time &t) {
+		return Time(hh+t.hh, mm+t.mm);
 	}
+	
+	friend ostream& operator <<(ostream&, const Time);
 };
 
-Imaginary add(const Imaginary &a, const Imaginary &b) {
-	return Imaginary(a.x+b.x, a.y+b.y);
-}
-
-Imaginary sub(const Imaginary &a, const Imaginary &b) {
-	return Imaginary(a.x-b.x, a.y-b.y);
-}
-
-Imaginary mul(const Imaginary &a, const Imaginary &b) {
-	return Imaginary(a.x*b.x-a.y*b.y, a.y*b.x+a.x*b.y);
-}
-
-Imaginary div(const Imaginary &a, const Imaginary &b) {
-	return Imaginary((a.x*b.x+a.y*b.y)/(b.x*b.x+b.y*b.y), (a.y*b.x-a.x*b.y)/(b.x*b.x+b.y*b.y));
+ostream& operator <<(ostream &out, const Time t)
+{
+	ostream::fmtflags old = out.flags();
+	
+	out.fill('0'); 
+	out << setw(2) << t.hh << ':' << setw(2) << t.mm;
+	
+	out.flags(old);
+	return out;
 }
 
 int main()
 {
-	Imaginary a(1, 2); Imaginary b(3, 4);
-	Imaginary::show(add(a, b));
-	Imaginary::show(sub(a, b));
-	Imaginary::show(mul(a, b));
-	Imaginary::show(div(a, b));
+	for (int i : {1, 2, 3, 4, 5, 6, 7, 8, 9})
+	{
+		Time a(i, rand()), b(rand(), i);
+		cout << "Case " << i << ": " << a << " + " << b << " = " << a+b << endl;
+	}	 
 }
