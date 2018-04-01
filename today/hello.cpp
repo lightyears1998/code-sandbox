@@ -1,77 +1,66 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-const int maxD = 100;
-const int BIG  = 10000;
-
-int r, c, n, d[maxD][maxD], d2[maxD][maxD], ans[maxD][maxD], cols[maxD][maxD];
-
-void copy(char type, int p, int q)
+typedef long long ll;
+inline ll in()
 {
-	if (type == 'R') {
-		for (int i=1; i <= c; ++i)
-			d[p][i] = d2[q][i];
-	} else {
-		for (int i=1; i <= r; ++i)
-			d[i][p] = d2[i][q];
-	}
+    char c=getchar();
+    while(!isdigit(c))c=getchar();
+    ll x=0;
+    while(isdigit(c))
+    {
+        x=x*10+c-'0';
+        c=getchar();
+    }
+    return x;
 }
 
-void del(char type) {
-	memcpy(d2, d, sizeof(d));
-	int cnt = type=='R' ? r : c, cnt2 = 0;
-	for (int i=1; i<=cnt; ++i) {
-		if (!cols[i]) copy(type, ++cnt2, i);
-	}
-	if (type == 'R') r= cnt2; else c = cnt2;
+int gcd(int x,int y)
+{
+    return y==0?x:gcd(y,x%y);
 }
 
-void ins(char type) {
-	memcpy(d2, d, sizeof(d));
-	int cnt = type=='R' ? r : c, cnt2=0;
-	for (int i=1; i<=cnt; ++i) {
-		if (cols[i]) copy(type, ++cnt2, 0);
-		copy(type, ++cnt2, i);
-	}
-	if (type=='R') r = cnt2; else c = cnt2;
-}
+const int MAX=2000+5;
+int a[MAX];
+int main()
+{
+    int n=in(),cnt=0,mi=0x3f3f3f3f;
+    bool flag=0;
+    for(int i=0;i<n;i++)
+    {
+        a[i]=in();
+        if(a[i]==1)
+        {
+            cnt++;
+            mi=1;
+            flag=1;
+        }
+        if(!flag)
+        {
+            int m=a[i];
+            for(int j=i-1;j>=0;j--)
+            {
+                m=gcd(a[j],m);
+                if(m==1)
+                {
+                    mi=mi<i-j?mi:i-j;
+                    flag=1;
+                    goto N;
+                }
+            }
+        }
+        N:;
+    }
+    if(n==cnt)
+    {
+        printf("%d\n",0);
+        return 0;
+    }
+    if(mi==0x3f3f3f3f)
+    {
+        puts("-1");
+        return 0;
+    }
+    printf("%d\n",n-cnt+mi-1);
 
-int main() {
-	int r1, c1, r2, c2, q, kase = 0;
-	char cmd[10];
-	memset(d, 0, sizeof(d));
-	while (scanf("%d%d%d", &d, &r, &c) == 2 && r)
-	{
-		int r0 = r, c0 = c;
-		for (int i=1; i<=r; ++i) 
-			for (int j=1; j<=c; ++j)
-				d[i][j] = i * BIG + j;
-		while (n--) {
-			scanf("%s", cmd);
-			if (cmd[0] == 'E') {
-				scanf("%d%d%d%d", &r1, &c1, &r2, &c2);
-				int t = d[r1][c1]; d[r1][c1] = d[r2][c2]; d[r2][c2] = t;
-			} else {
-				int a, x; scanf("%d", &a);
-				memset(cols, 0, sizeof(cols));
-				for (int i=0; i<a; ++i) { scanf("%d", &x); cols[x] = 1; }
-				if (cmd[0] == 'D') del(cmd[1]); else ins(cmd[1]);
-			}
-		}
-		memset(ans, 0, sizeof(ans));
-		for (int i=1; i<= r; ++i)
-			for (int j=1; j<= c; ++j) {
-				ans[d[i][j]/BIG][d[i][j]%BIG] = i * BIG + j;
-			}
-		if (kase > 0) printf("\n");
-		printf("Spreadsheet #%d\n", ++kase);
-		scanf("%d", &q);
-		while (q--) {
-			scanf("%d%d", &r1, &c1);
-			printf("Cell data in (%d,%d) ", r1, c1);
-			if (ans[r1][c1] == 0) printf("GONE\n");
-			else printf("moved to (%d,%d)\n", ans[r1][c1]/BIG, ans[r1][c1]%BIG);
-			}
-		}
-	}
+    return 0;
 }
