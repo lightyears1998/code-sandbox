@@ -1,66 +1,33 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
-inline ll in()
+using LL = long long;
+
+const int MOD = 1e9 + 7;
+
+LL ans[50050];
+
+LL split(LL n, LL m)
 {
-    char c=getchar();
-    while(!isdigit(c))c=getchar();
-    ll x=0;
-    while(isdigit(c))
-    {
-        x=x*10+c-'0';
-        c=getchar();
-    }
-    return x;
+	if (n == m && ~ans[n]) return ans[n];
+ 	if (n == 1 || m == 1) return 1;
+	if (n == m) return ans[n] = (1 + split(n, m - 1)) % MOD;
+	if (n < m) return split(n, n);
+	return (split(n - m, m) + split(n, m - 1)) % MOD; 
 }
 
-int gcd(int x,int y)
+LL split(LL n)
 {
-    return y==0?x:gcd(y,x%y);
+	return ~ans[n] ? ans[n] : ans[n] = split(n, n);
 }
 
-const int MAX=2000+5;
-int a[MAX];
 int main()
 {
-    int n=in(),cnt=0,mi=0x3f3f3f3f;
-    bool flag=0;
-    for(int i=0;i<n;i++)
-    {
-        a[i]=in();
-        if(a[i]==1)
-        {
-            cnt++;
-            mi=1;
-            flag=1;
-        }
-        if(!flag)
-        {
-            int m=a[i];
-            for(int j=i-1;j>=0;j--)
-            {
-                m=gcd(a[j],m);
-                if(m==1)
-                {
-                    mi=mi<i-j?mi:i-j;
-                    flag=1;
-                    goto N;
-                }
-            }
-        }
-        N:;
-    }
-    if(n==cnt)
-    {
-        printf("%d\n",0);
-        return 0;
-    }
-    if(mi==0x3f3f3f3f)
-    {
-        puts("-1");
-        return 0;
-    }
-    printf("%d\n",n-cnt+mi-1);
-
-    return 0;
-}
+	for (int i = 0; i < 50050; ++i)	ans[i] = -1;
+	for (int i = 1; i < 50050; ++i) split(i);
+	
+	LL n;
+	while (scanf("%lld", &n) == 1)
+	{
+		printf("%lld\n", split(n));
+	}
+} 
