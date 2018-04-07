@@ -3,3 +3,4 @@ Thumbs.db
 
 # 可执行文件
 *.exe
+*.o
