@@ -1,43 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
-<<<<<<< HEAD
 
-int main()
+const int maxN = 300300;
+
+string str[maxN];
+
+bool cmp(string &L, string &R, int len)
 {
-	double x = 2.108e-4;	
-	double y = 5.7735e-4;
-	cout << hypot(x, y) << endl;
-}
-=======
-using LL = long long;
-
-const int MOD = 1e9 + 7;
-
-LL ans[50050];
-
-LL split(LL n, LL m)
-{
-	if (n == m && ~ans[n]) return ans[n];
- 	if (n == 1 || m == 1) return 1;
-	if (n == m) return ans[n] = (1 + split(n, m - 1)) % MOD;
-	if (n < m) return split(n, n);
-	return (split(n - m, m) + split(n, m - 1)) % MOD; 
+    if (len == 0) return true;
+    for (int i=0; i<len; ++i) {
+        if (L[L.length()-len+i] != R[i])
+            return false;
+    }
+    return true;
 }
 
-LL split(LL n)
+
+int query(int l, int r)
 {
-	return ~ans[n] ? ans[n] : ans[n] = split(n, n);
+    string &L = str[l], &R = str[r];
+    int len = min(L.length(), R.length());
+    while (!cmp(L, R, len)) --len;
+    return len;
 }
 
 int main()
 {
-	for (int i = 0; i < 50050; ++i)	ans[i] = -1;
-	for (int i = 1; i < 50050; ++i) split(i);
+	#ifdef LOCAL
+	freopen("in.txt", "r", stdin);
+	#endif 
 	
-	LL n;
-	while (scanf("%lld", &n) == 1)
-	{
-		printf("%lld\n", split(n));
-	}
-} 
->>>>>>> 420134ab86db6d30b7838f7aedc3373784224837
+    int n; cin >> n;
+    for (int i=0; i<n; ++i) {
+        cin >> str[i];
+    }
+    
+    int q; cin >> q;
+    while (q--)
+    {
+        int l, r; cin >> l >> r;
+        cout << query(l-1, r-1) << endl;
+    }
+}
