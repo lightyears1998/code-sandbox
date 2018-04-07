@@ -1,22 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string ans[10];
+const int maxN = 10086;
+
+int sqr[maxN], tot;
 
 int main()
 {
-	for (int i=0; i<10; ++i) {
-		cout << i << endl;
-		getline(cin, ans[i]);
-		
-		for (unsigned j=0; j<ans[i].size(); ++j) ans[i] = char(tolower(ans[i][j]));
-	}
+	for (int i=0; i*i<maxN; ++i)
+		sqr[i] = i*i, ++tot;
 	
-	bool normal = false;
-	for (string &s : ans)
+	int n;
+	while (scanf("%d", &n) == 1)
 	{
-		if (s == "cool") normal = true;
+		for (int i=1; i<tot; ++i)
+			for (int j=i; j<tot; ++j)
+			{
+				int res = n - sqr[i] - sqr[j];
+				int pos = lower_bound(sqr, sqr+tot, res)-sqr;
+				if (sqr[pos] == res && pos>=j) {
+					printf("%d %d %d\n", i, j, pos);
+					goto done;
+				}
+			}
+		
+		done: continue;
 	}
-	
-	cout << (normal ? "normal" : "grumpy") << endl;
+
 }
