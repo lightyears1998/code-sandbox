@@ -1,40 +1,29 @@
-#include <iostream>
-#include <iomanip>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
 
-struct Date {
-	int day, month, year;
-
-	Date() = default;
-	Date(int d, int m, int y) {
-		day = d, month = m, year = y;
+class Base {
+public:
+	Base() = default;
+	Base(int v) {
+		val = v;
 	}
-	void show() {
-		ios::fmtflags old(cout.flags());
-		cout.fill('-');
-		cout << setw(4) << year << '-' << setw(2) << month << '-' << setw(2) << day;
-		cout.flags(old);
-	}
+protected:
+	int val;
 };
 
-struct Book {
-	string Name;
-	Date BorrowDate, ReturnDate;
+class Child : public Base {
+	Child() = default;  // 可选，让编译器生成无参数的默认构造函数
+	Child(const Base &base) {
+		val = base.val;
+	}
 
-	Book() = default;
-	Book(string name, Date bdate, Date rdate) {
-		Name = name;
-		BorrowDate = bdate, ReturnDate = rdate;
-	} 
+	Child operator =(const Base &base) {
+		val = base.val;
+		return *this;
+	}
 };
 
 int main()
 {
-	Date a(1, 2, 3);
-	a.show();
-
-	cout << endl;
-	int i = 12;
-	cout << setw(12) <<  i << endl;
+	Base base;
 }
