@@ -1,29 +1,18 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
-class Base {
-public:
-	Base() = default;
-	Base(int v) {
-		val = v;
-	}
+// 轮胎
+class Tire {
 protected:
-	int val;
+	int weight;	
 };
 
-class Child : public Base {
-	Child() = default;  // 可选，让编译器生成无参数的默认构造函数
-	Child(const Base &base) {
-		val = base.val;
-	}
+// 底盘
+class Chassis : private Tire {
 
-	Child operator =(const Base &base) {
-		val = base.val;
-		return *this;
-	}
-};
+} 
 
 int main()
 {
-	Base base;
+	
 }
