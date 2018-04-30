@@ -1,6 +1,0 @@
-| Test | C++ scanf() | C++ acIO | Java Scanner | Java acIO |
-| --- | --- | --- | --- |
-| **Read** | 0.031 | | |
-| **Judge** | OK |  |  |  |
-
-* The number of ingeters is 1e4.
