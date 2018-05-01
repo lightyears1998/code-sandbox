@@ -25,7 +25,7 @@ struct BigInt
 	}
 	
 	BigInt operator -(const BigInt b) const {
-		BigInt rlst; 
+		BigInt rlst;
 		int ent = 0; 
 	} 
 	
@@ -35,8 +35,10 @@ struct BigInt
 		}
 	}
 }
+using bint = BigInt;
 
 int main()
 {
-	
+	bint a = 12;
+	cout << a << endl;
 }
