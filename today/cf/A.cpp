@@ -1,21 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#define sfi(n) scanf("%d", &n)
-#define sfc(n) scanf(" %c", &n) 
-#define rep(i, a, b) for (int i=a; i<b; ++i)
-#define dwn(i, b, a) for (int i=b-1; i>=a; --i)
-
-set<string> st;
+vector<int> vec;
 
 int main()
 {
-	int n; cin >> n;
-	while (n--) {
-		string str; cin >> str;
-		sort(str.begin(), str.end());
-		str.resize(unique(str.begin(), str.end())-str.begin());
-		st.insert(str);
+	string s; cin >> s;
+	int cntO = 0, cnt_ = 0;
+	for (char ch : s) {
+		if (ch == 'o') ++cntO;
+		if (ch == '-') ++cnt_;
 	}
-	cout << st.size() << endl;
+	
+	if (cntO == 1) {
+		cout << "NO" << endl;
+		return 0;
+	}
+	if (cntO == 0 || cnt_ == 0 || cntO%cnt_ == 0 || cnt_%cntO == 0) {
+		cout << "YES" << endl; 
+	}
+	else cout << "NO" << endl;
 }

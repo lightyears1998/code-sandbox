@@ -2,7 +2,6 @@
 using namespace std;
 
 // 不能出现负数
-// 构造函数中memset是必须的，因为需要排除前导零 
 struct bint
 {
 	int v[1010];  // 低位在前存放各个位置上的数据
@@ -34,7 +33,6 @@ struct bint
 		for (int i=d; i>=0; --i) {
 			printf("%d", v[i]);
 		}
-		putchar('\n');
 	}
 }; 
 

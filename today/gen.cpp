@@ -3,10 +3,13 @@ using namespace std;
 
 int main()
 {
+	srand(time(0));
 	freopen("in.txt", "w", stdout);
-	for (int i=0; i<100; ++i)
+	
+	cout << 200000 << endl;
+	for (int i=0; i<200000; ++i)
 	{
-		cout << rand()*rand()%1000000 << ' ' << rand()*rand()%1000000 << ' '
-		     << rand()*rand()%1000000 << ' ' << rand()*rand()%1000000000 << endl;
+		cout << rand()*rand() << ' ';
 	}
+	cout << endl;
 }

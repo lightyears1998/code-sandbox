@@ -1,41 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
-using LL = long long;
-
-LL num[14];
-
-LL take(int pos)
-{
-	LL nxt[14];
-	for (int i=0; i<14; ++i) {
-		nxt[i] = num[i];
-	}
-	
-	LL db = nxt[pos];
-	if (db == 0) return 0;
-	
-	nxt[pos] = 0;
-	for (int i=1; i<=14; ++i) {
-		nxt[(pos+i)%14] += db/14+(db%14-i>=0?1:0);	
-	}
-
-	LL ret = 0;
-	for (int i=0; i<14; ++i) {
-		if (nxt[i] % 2 == 0) 
-			ret += nxt[i];
-	}
-	return ret;
-}
 
 int main()
 {
-	for (int i=0; i<14; ++i) {
-		cin >> num[i];
-	}
+	int n, k; cin >> n >> k;
 	
-	LL ans = 0;
-	for (int i=0; i<14; ++i) {
-		ans = max(ans, take(i));
+	cout << "YES" << endl;
+	if (k % 2 == 0) {
+		int mx = k / 2;
+		for (int i=0; i<4; ++i) {
+			for (int j=0; j<n; ++j) {
+				if (i && i+1 != 4 && j && j <= mx) cout << '#';
+				else cout << '.';
+			}
+			cout << endl;
+		}
 	}
-	cout << ans << endl;
+	else {
+		for (int i=0; i<n; ++i) cout << '.'; cout << endl;
+		if (k > n-2) {
+			cout << '.';
+			for (int i=1; i<n-1; ++i) cout << '#';
+			cout << '.' << endl;
+			k -= n-2;
+			int mx = k/2;
+			for (int j=0; j<n; ++j) {
+				if (j && (j <= mx || n-1-j<=mx) && j+1 != n) cout << '#';
+				else cout << '.';
+			}
+			cout << endl;
+		}
+		else {
+			int mx = (k-1)/2;
+			for (int i=0; i<n; ++i) {
+				if (i && i+1 != n && (i-0<=mx || i==(n-1)/2 || n-1-i<=mx)) {
+					cout << '#';
+				}
+				else cout << '.';
+			} cout << endl;
+			for (int i=0; i<n; ++i) cout << '.'; cout << endl;
+		}
+		for (int i=0; i<n; ++i) cout << '.'; cout << endl;
+	}
 }
