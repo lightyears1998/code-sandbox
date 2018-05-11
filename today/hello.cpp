@@ -1,48 +1,20 @@
 #include <bits/stdc++.h>
 using namespace std;
-using pii = pair<int, int>;
+using LL = long long; 
 
-stack<LL> s;
-vector<LL> v;
-unordered_map<int, pii> dp;
+bool judge(LL a, LL b)
+{
+	if (a > b) swap(a, b);
+	LL k = b-a;
+	return a == LL(floor(k*(1.0L+sqrt(5.0L))/2.0L));
+}
 
 int main()
 {
-	#ifdef LOCAL
-	freopen("in.txt", "r", stdin);
-	#endif
-	
-	int n; scanf("%d", &n);
-
-	v.resize(n + 5);
-	for (int i = 1; i <= n; i++) {
-		scanf("%lld", &v[i]);
+	int t; scanf("%d", &t);
+	while (t--)
+	{
+		LL a, b; scanf("%lld%lld", &a, &b);
+		puts(judge(a, b) ? "B" : "A");
 	}
-
-	for (int i = 1; i <= n; i++) {
-	    dp[v[i]], dp[v[i] - 1];
-		dp[v[i]].first = dp[v[i] - 1].first + 1;
-		dp[v[i]].second = i;
-	}
-	
-	int idx = 1;
-	for (int i = 2; i <= n; i++) {
-		dp[v[idx]], dp[v[i]];
-		if (dp[v[idx]].first < dp[v[i]].first) {
-			idx = i;
-		}
-	}
-
-	printf("%lld\n", dp[v[idx]].first);
-
-	LL now = v[idx]; int cnt = dp[v[idx]].first; idx = n;
-	while (cnt > 0){
-		while (v[idx] != now) --idx;
-		s.push(idx); --now; --cnt;
-	}
-	while (!s.empty()) {
-		printf("%lld ", s.top());
-		s.pop();
-	}
-	printf("\n");
 }
