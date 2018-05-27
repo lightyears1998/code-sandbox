@@ -1,2 +1,3 @@
 <?php
-print "hello, PHP";
+print("hello, PHP.\n");
+echo("hello, echoing.\n");
