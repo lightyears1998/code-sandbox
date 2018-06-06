@@ -1,0 +1,1 @@
+g++ "Դ.cpp" -o "hello.exe"
