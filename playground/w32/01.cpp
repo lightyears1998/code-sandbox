@@ -1,13 +1,14 @@
+// Source:
 // https://docs.microsoft.com/en-us/windows/console/using-the-high-level-input-and-output-functions
 
 #include <windows.h> 
  
 void NewLine(void); 
 void ScrollScreenBuffer(HANDLE, INT); 
- 
+
 HANDLE hStdout, hStdin; 
 CONSOLE_SCREEN_BUFFER_INFO csbiInfo; 
- 
+
 int main(void) 
 { 
     LPCSTR lpszPrompt1 = "Type a line and press Enter, or q to quit: ";
