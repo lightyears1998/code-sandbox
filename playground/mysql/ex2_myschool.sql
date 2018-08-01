@@ -1,5 +1,3 @@
-// 为科目表、学生表和成绩表添加数据
-
 CREATE DATABASE School;
 USE School;
 
@@ -20,6 +18,8 @@ CREATE TABLE IF NOT EXISTS student (
     address VARCHAR(50),
     birthday DATE
 );
+
+// 为科目表、学生表和成绩表添加数据
 
 INSERT INTO subject (id, projectName, classHour, termNumber) VALUES
 (1, 'LogicJava', 220, 1), 
