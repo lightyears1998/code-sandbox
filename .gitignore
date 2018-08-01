@@ -4,3 +4,6 @@ Thumbs.db
 # 可执行文件
 *.exe
 *.o
+
+# 编辑器设置
+.vscode
