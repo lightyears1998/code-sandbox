@@ -1,8 +1,8 @@
-MFC技能点
+# MFC练习仓库
 
-## 目录
+使用的教材是清华大学出版社2016版《Visual C++教程》。
 
-| 标识符 | 项目 | 备注 |
-| --- | --- | --- |
-| ch1-01Windows | Hello, Windows编程! | WinMain() |
-| ch1-02WindowsAndMessage | 窗口和消息 | WinProc() |
+## Chapter 1
+
+1. Hello, world
+2. 注册窗口，处理消息循环
