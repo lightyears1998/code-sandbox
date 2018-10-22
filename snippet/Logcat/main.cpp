@@ -6,6 +6,5 @@
 
 int main()
 {
-	CLogcat cat;
-	std::cout << cat.GetLogFilePath();
+	CLogcat cat("log.txt", true);
 }
