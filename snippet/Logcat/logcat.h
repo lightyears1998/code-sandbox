@@ -1,7 +1,9 @@
 #pragma once
 #include <afx.h>
 
-
+/// <summary>
+/// MFC日志类，封装常用的日志处理函数
+/// </summary>
 class CLogcat :
 	public CObject
 {
@@ -11,9 +13,6 @@ protected:
 
 	/// 日志文件对象
 	CStdioFile file;
-
-	/// 时间对象
-	CTime time;
 
 public:
 	/// CLogcat对象的构造函数
@@ -25,10 +24,17 @@ public:
 	virtual ~CLogcat();
 
 	/// 获取日志文件所在路径
+	/// <returns>日志文件所在路径的字符串表示</returns>
 	CString GetLogFilePath();
 
 	/// 设置日志文件所在路径
+	/// <returns>如果成功设置日志文件路径则返回真</returns>
 	BOOL SetLogFilePath(CONST CString& path);
+
+	/// 记录指定级别的日志
+	/// <param name="level">日志级别</param>
+	/// <param name="voice">日志</param>
+	VOID Log(CONST CString& level, CONST CString& voice);
 
 	/// 输出Verbose级别日志
 	VOID Verbose(CONST CString& voice);

@@ -6,7 +6,7 @@ CLogcat::CLogcat(CONST CString& path, BOOL truncate)
 	filepath = path;
 	file.Open(filepath, CFile::modeCreate | (truncate ? 0U : CFile::modeNoTruncate) | CFile::modeWrite);
 	file.SeekToEnd();
-	file.WriteString("Success\n");
+	Verbose("Logging util started");
 }
 
 
@@ -30,9 +30,21 @@ BOOL CLogcat::SetLogFilePath(CONST CString& path)
 }
 
 
+VOID CLogcat::Log(CONST CString& level, CONST CString& voice)
+{
+	CString stamp;
+	CTime time = CTime::GetCurrentTime();
+	stamp.Format(TEXT("%d-%d %02d:%02d:%02d [%s] "), 
+		time.GetMonth(), time.GetDay(), time.GetHour(), time.GetMinute(), time.GetSecond(),
+		level);
+	
+	file.WriteString(stamp + voice + "\n");
+}
+
+
 VOID CLogcat::Verbose(const CString & voice)
 {
-	file.WriteString("[Verbose]" + voice);
+	Log("Verbose", voice);
 }
 
 
@@ -44,7 +56,7 @@ VOID CLogcat::V(const CString & voice)
 
 VOID CLogcat::Debug(const CString & voice)
 {
-	file.WriteString("[Debug]" + voice);
+	Log("Debug", voice);
 }
 
 
@@ -56,7 +68,7 @@ VOID CLogcat::D(const CString & voice)
 
 VOID CLogcat::Info(const CString & voice)
 {
-	file.WriteString("[Info]" + voice);
+	Log("Info", voice);
 }
 
 
@@ -68,7 +80,7 @@ VOID CLogcat::I(const CString & voice)
 
 VOID CLogcat::Warn(const CString & voice)
 {
-	file.WriteString("[Warn]" + voice);
+	Log("Warn", voice);
 }
 
 
@@ -80,7 +92,7 @@ VOID CLogcat::W(const CString & voice)
 
 VOID CLogcat::Error(CONST CString& voice)
 {
-	file.WriteString("[Error]" + voice);
+	Log("Error", voice);
 }
 
 
