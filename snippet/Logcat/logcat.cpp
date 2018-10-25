@@ -6,7 +6,7 @@ CLogcat::CLogcat(CONST CString& path, BOOL truncate)
 	filepath = path;
 	file.Open(filepath, CFile::modeCreate | (truncate ? 0U : CFile::modeNoTruncate) | CFile::modeWrite);
 	file.SeekToEnd();
-	Verbose("Logging util started");
+	Verbose("LogUtil", "Logging util started.");
 }
 
 
@@ -30,73 +30,73 @@ BOOL CLogcat::SetLogFilePath(CONST CString& path)
 }
 
 
-VOID CLogcat::Log(CONST CString& level, CONST CString& voice)
+VOID CLogcat::Log(CONST CString& level, CONST CString& tag, CONST CString& voice)
 {
 	CString stamp;
 	CTime time = CTime::GetCurrentTime();
-	stamp.Format(TEXT("%d-%d %02d:%02d:%02d [%s] "), 
+	stamp.Format(TEXT("%d-%d %02d:%02d:%02d %s/%s: "), 
 		time.GetMonth(), time.GetDay(), time.GetHour(), time.GetMinute(), time.GetSecond(),
-		level);
+		level, tag);
 	
 	file.WriteString(stamp + voice + "\n");
 }
 
 
-VOID CLogcat::Verbose(const CString & voice)
+VOID CLogcat::Verbose(CONST CString& tag, const CString & voice)
 {
-	Log("Verbose", voice);
+	Log("V", tag, voice);
 }
 
 
-VOID CLogcat::V(const CString & voice)
+VOID CLogcat::V(CONST CString& tag, const CString & voice)
 {
-	Verbose(voice);
+	Verbose(tag, voice);
 }
 
 
-VOID CLogcat::Debug(const CString & voice)
+VOID CLogcat::Debug(CONST CString& tag, const CString & voice)
 {
-	Log("Debug", voice);
+	Log("D", tag, voice);
 }
 
 
-VOID CLogcat::D(const CString & voice)
+VOID CLogcat::D(CONST CString& tag, const CString & voice)
 {
-	Debug(voice);
+	Debug(tag, voice);
 }
 
 
-VOID CLogcat::Info(const CString & voice)
+VOID CLogcat::Info(CONST CString& tag, const CString & voice)
 {
-	Log("Info", voice);
+	Log("I", tag, voice);
 }
 
 
-VOID CLogcat::I(const CString & voice)
+VOID CLogcat::I(CONST CString& tag, const CString & voice)
 {
-	Info(voice);
+	Info(tag, voice);
 }
 
 
-VOID CLogcat::Warn(const CString & voice)
+VOID CLogcat::Warn(CONST CString& tag, const CString & voice)
 {
-	Log("Warn", voice);
+	Log("W", tag, voice);
 }
 
 
-VOID CLogcat::W(const CString & voice)
+VOID CLogcat::W(CONST CString& tag, CONST CString & voice)
 {
-	Warn(voice);
+	Warn(tag, voice);
 }
 
 
-VOID CLogcat::Error(CONST CString& voice)
+VOID CLogcat::Error(CONST CString& tag, CONST CString& voice)
 {
-	Log("Error", voice);
+	Log("E", tag, voice);
 }
 
 
-VOID CLogcat::E(const CString & voice)
+VOID CLogcat::E(CONST CString& tag, CONST CString & voice)
 {
-	Error(voice);
+	Error(tag, voice);
 }

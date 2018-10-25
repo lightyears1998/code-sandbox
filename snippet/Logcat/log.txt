@@ -1,6 +1,8 @@
-10-25 01:31:22 [Verbose] Logging util started
-10-25 01:31:22 [Verbose] This is a verbose.
-10-25 01:31:22 [Debug] This is a debug.
-10-25 01:31:22 [Info] This is an info.
-10-25 01:31:22 [Warn] This is a warn
-10-25 01:31:22 [Error] This is an error
+10-25 12:42:10 V/LogUtil: Logging util started.
+10-25 12:42:10 V/Main: This is a verbose.
+10-25 12:42:10 D/Main: This is a debug.
+10-25 12:42:10 I/Main: This is an info.
+10-25 12:42:10 W/Main: This is a warn.
+10-25 12:42:10 E/Main: This is an error.
+10-25 12:42:10 I/这是一个中文的标签: 这是一句的中文对白。
+10-25 12:42:10 I/Main: Function normally.

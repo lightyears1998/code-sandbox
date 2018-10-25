@@ -33,36 +33,56 @@ public:
 
 	/// 记录指定级别的日志
 	/// <param name="level">日志级别</param>
-	/// <param name="voice">日志</param>
-	VOID Log(CONST CString& level, CONST CString& voice);
+	/// <param name="voice">日志内容</param>
+	VOID Log(CONST CString& level, CONST CString& tag, CONST CString& voice);
 
 	/// 输出Verbose级别日志
-	VOID Verbose(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID Verbose(CONST CString& tag, CONST CString& voice);
 
 	/// 输出Verbose级别日志
-	VOID V(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID V(CONST CString& tag, CONST CString& voice);
 	
 	/// 输出Debug级别日志
-	VOID Debug(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID Debug(CONST CString& tag, CONST CString& voice);
 
 	/// 输出Debug级别日志
-	VOID D(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID D(CONST CString& tag, CONST CString& voice);
 
 	/// 输出Info级别日志
-	VOID Info(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID Info(CONST CString& tag, CONST CString& voice);
 
 	/// 输出Info级别日志
-	VOID I(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>	
+	VOID I(CONST CString& tag, CONST CString& voice);
 
 	/// 输出Warn级别日志
-	VOID Warn(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID Warn(CONST CString& tag, CONST CString& voice);
 	
 	/// 输出Warn级别日志
-	VOID W(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID W(CONST CString& tag, CONST CString& voice);
 
 	/// 输出Error级别日志
-	VOID Error(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID Error(CONST CString& tag, CONST CString& voice);
 	
 	/// 输出Error级别日志
-	VOID E(CONST CString& voice);
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID E(CONST CString& tag, CONST CString& voice);
 };
