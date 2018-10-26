@@ -1,0 +1,8 @@
+10-26 14:41:26 V/LogUtil: Logging util started.
+10-26 14:41:26 V/Main: This is a verbose.
+10-26 14:41:26 D/Main: This is a debug.
+10-26 14:41:26 I/Main: This is an info.
+10-26 14:41:26 W/Main: This is a warn.
+10-26 14:41:26 E/Main: This is an error.
+10-26 14:41:26 I/这是一个中文的标签: 这是一句的中文对白。
+10-26 14:41:26 I/Main: Function normally.
