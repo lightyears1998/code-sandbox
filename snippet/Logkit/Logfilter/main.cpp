@@ -1,7 +1,4 @@
-#include <iostream>
-using namespace std;
+#include "stdafx.h"
+#include "LogfilterApp.h"
 
-int main()
-{
-	cout << "hello, world!" << endl;
-}
+LogfilterApp theApp;
