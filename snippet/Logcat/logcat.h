@@ -33,6 +33,7 @@ public:
 
 	/// 记录指定级别的日志
 	/// <param name="level">日志级别</param>
+	/// <param name="tag">日志标签</param>
 	/// <param name="voice">日志内容</param>
 	VOID Log(CONST CString& level, CONST CString& tag, CONST CString& voice);
 
@@ -85,4 +86,15 @@ public:
 	/// <param name="tag">日志标签</param>
 	/// <param name="voice">日志内容</param>
 	VOID E(CONST CString& tag, CONST CString& voice);
+
+
+	///  输出Assert级别日志
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID Assert(CONST CString& tag, CONST CString& voice);
+
+	///  输出Assert级别日志
+	/// <param name="tag">日志标签</param>
+	/// <param name="voice">日志内容</param>
+	VOID A(CONST CString& tag, CONST CString& voice);
 };

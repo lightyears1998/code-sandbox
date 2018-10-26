@@ -100,3 +100,13 @@ VOID CLogcat::E(CONST CString& tag, CONST CString & voice)
 {
 	Error(tag, voice);
 }
+
+VOID CLogcat::Assert(const CString & tag, const CString & voice)
+{
+	Log("A", tag, voice);
+}
+
+VOID CLogcat::A(const CString & tag, const CString & voice)
+{
+	Assert(tag, voice);
+}
