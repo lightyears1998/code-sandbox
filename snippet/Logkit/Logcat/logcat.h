@@ -4,7 +4,7 @@
 /// <summary>
 /// MFC日志类，封装常用的日志处理函数
 /// </summary>
-class CLogcat :
+class Logcat :
 	public CObject
 {
 protected:
@@ -15,13 +15,13 @@ protected:
 	CStdioFile file;
 
 public:
-	/// CLogcat对象的构造函数
+	/// Logcat对象的构造函数
 	/// <param name="path">日志文件的路径</param>
 	/// <param name="truncate">是否覆盖上一次生成的日志</param>
-	CLogcat(CONST CString& path = "log.txt", BOOL truncate = FALSE);
+	Logcat(CONST CString& path = "log.txt", BOOL truncate = FALSE);
 
 
-	virtual ~CLogcat();
+	virtual ~Logcat();
 
 	/// 获取日志文件所在路径
 	/// <returns>日志文件所在路径的字符串表示</returns>

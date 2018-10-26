@@ -6,7 +6,7 @@
 
 int main()
 {
-	CLogcat cat("log.txt", true);
+	Logcat cat("log.txt", true);
 	CString tag("Main");
 	cat.V(tag, "This is a verbose.");
 	cat.D(tag, "This is a debug.");

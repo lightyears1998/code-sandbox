@@ -1,7 +1,7 @@
 #include "logcat.h"
 
 
-CLogcat::CLogcat(CONST CString& path, BOOL truncate)
+Logcat::Logcat(CONST CString& path, BOOL truncate)
 {
 	filepath = path;
 	file.Open(filepath, CFile::modeCreate | (truncate ? 0U : CFile::modeNoTruncate) | CFile::modeWrite);
@@ -10,19 +10,19 @@ CLogcat::CLogcat(CONST CString& path, BOOL truncate)
 }
 
 
-CLogcat::~CLogcat()
+Logcat::~Logcat()
 {
 	file.Close();
 }
 
 
-CString CLogcat::GetLogFilePath()
+CString Logcat::GetLogFilePath()
 {
 	return filepath;
 }
 
 
-BOOL CLogcat::SetLogFilePath(CONST CString& path)
+BOOL Logcat::SetLogFilePath(CONST CString& path)
 {
 	filepath = path;
 	file.Open(filepath, CFile::modeCreate | CFile::modeNoTruncate | CFile::modeWrite);
@@ -30,7 +30,7 @@ BOOL CLogcat::SetLogFilePath(CONST CString& path)
 }
 
 
-VOID CLogcat::Log(CONST CString& level, CONST CString& tag, CONST CString& voice)
+VOID Logcat::Log(CONST CString& level, CONST CString& tag, CONST CString& voice)
 {
 	CString stamp;
 	CTime time = CTime::GetCurrentTime();
@@ -42,71 +42,71 @@ VOID CLogcat::Log(CONST CString& level, CONST CString& tag, CONST CString& voice
 }
 
 
-VOID CLogcat::Verbose(CONST CString& tag, const CString & voice)
+VOID Logcat::Verbose(CONST CString& tag, const CString & voice)
 {
 	Log("V", tag, voice);
 }
 
 
-VOID CLogcat::V(CONST CString& tag, const CString & voice)
+VOID Logcat::V(CONST CString& tag, const CString & voice)
 {
 	Verbose(tag, voice);
 }
 
 
-VOID CLogcat::Debug(CONST CString& tag, const CString & voice)
+VOID Logcat::Debug(CONST CString& tag, const CString & voice)
 {
 	Log("D", tag, voice);
 }
 
 
-VOID CLogcat::D(CONST CString& tag, const CString & voice)
+VOID Logcat::D(CONST CString& tag, const CString & voice)
 {
 	Debug(tag, voice);
 }
 
 
-VOID CLogcat::Info(CONST CString& tag, const CString & voice)
+VOID Logcat::Info(CONST CString& tag, const CString & voice)
 {
 	Log("I", tag, voice);
 }
 
 
-VOID CLogcat::I(CONST CString& tag, const CString & voice)
+VOID Logcat::I(CONST CString& tag, const CString & voice)
 {
 	Info(tag, voice);
 }
 
 
-VOID CLogcat::Warn(CONST CString& tag, const CString & voice)
+VOID Logcat::Warn(CONST CString& tag, const CString & voice)
 {
 	Log("W", tag, voice);
 }
 
 
-VOID CLogcat::W(CONST CString& tag, CONST CString & voice)
+VOID Logcat::W(CONST CString& tag, CONST CString & voice)
 {
 	Warn(tag, voice);
 }
 
 
-VOID CLogcat::Error(CONST CString& tag, CONST CString& voice)
+VOID Logcat::Error(CONST CString& tag, CONST CString& voice)
 {
 	Log("E", tag, voice);
 }
 
 
-VOID CLogcat::E(CONST CString& tag, CONST CString & voice)
+VOID Logcat::E(CONST CString& tag, CONST CString & voice)
 {
 	Error(tag, voice);
 }
 
-VOID CLogcat::Assert(const CString & tag, const CString & voice)
+VOID Logcat::Assert(const CString & tag, const CString & voice)
 {
 	Log("A", tag, voice);
 }
 
-VOID CLogcat::A(const CString & tag, const CString & voice)
+VOID Logcat::A(const CString & tag, const CString & voice)
 {
 	Assert(tag, voice);
 }
