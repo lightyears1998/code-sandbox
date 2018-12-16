@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"code-runner.executorMap": {
+			"javascript": "node $fileName < input.txt | tee output.txt",
+		}
+	}
+}
