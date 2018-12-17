@@ -20,10 +20,13 @@ process.stdin.setEncoding('utf8');
 process.stdin.on('data', function(data) { input += data; });
 process.stdin.on('end', function() { main(); });
 
-var isWhitespace = (character) => (' \t\n\r\v'.indexOf(character) > -1);
-var clearWhitespaces = () => {
+function isWhitespace(character) {
+    return ' \t\n\r\v'.indexOf(character) > -1;
+}
+
+function clearWhitespaces() {
     while (cursor < input.length && isWhitespace(input[cursor])) ++cursor; 
-};
+}
 
 function nextInt() {
     return parseInt(nextString());
