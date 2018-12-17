@@ -1,17 +1,17 @@
 'use strict';
 
 function main() {
-    let n = nextInt(), ans = 0;
-    while (n--) {
-        let str = nextString();
-        str[1] === '+' ? ++ans : --ans;
-    }
-    console.log(ans);
+    print('hello, world!');
 }
 
-// ------ IO Helper ------
-// nextInt(), nextFloat(), nextChar(), nextString()
-// isWhitespace(charater :string), clearWhitespaces()
+/**
+ * Node.js IO Helper
+ * 
+ * `nextInt()`, `nextFloat()`, `nextChar()`, `nextString()`
+ * `nextLine()` skips lines that contain only whitespace character.
+ * `isWhitespaces(character)`, `clearWhitespaces()`
+ * `print(string)`
+ */
 
 var input = "";
 var cursor = 0;
@@ -47,4 +47,18 @@ function nextString() {
         str += input[cursor++];
     }
     return str;
+}
+
+function nextLine() {
+    let str = "";
+    clearWhitespaces();
+    while (cursor < input.length) {
+        let ch = input[cursor++];
+        if (ch !== '\n') str += ch; else break;
+    }
+    return str;
+}
+
+function print(str) {
+    console.log(str);
 }
