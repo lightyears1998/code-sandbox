@@ -6,7 +6,7 @@
 	],
 	"settings": {
 		"code-runner.executorMap": {
-			"javascript": "node $filename < input.txt",
+			"javascript": "node $fileName < input.txt | tee output.txt",
 		}
 	}
 }
