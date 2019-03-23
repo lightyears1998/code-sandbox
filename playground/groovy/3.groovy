@@ -14,3 +14,6 @@ Event e1 = new Event(name: 'Android Studio 1.0',
 Event e2 = new Event(name: 'Android Studio 1.0',
 	when: Date.parse('MMM d, yyyy', 'Dec 8, 2014'),
 	priority: 1)
+
+println e1.toString()
+println e2.toString()
