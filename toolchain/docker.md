@@ -20,3 +20,8 @@
     ```bash
     docker run --name wordpress-blog --link wordpress-db -p 8080:80 -d -e WORDPRESS_DB_HOST=wordpress-db:3306 -e WORDPRESS_DB_PASSWORD=my_password wordpress
     ```
+
+相关链接
+
+1. [DockerHub上的Wordpress](https://hub.docker.com/_/wordpress/)
+2. [DockerHub上的MariaDB](https://hub.docker.com/_/mariadb)
