@@ -1,5 +1,7 @@
 # Go沙盒
 
+Hello, world.
+
 ```go
 package main
 
