@@ -1,3 +1,20 @@
+env:
+  es6: true
+  node: true
+parser: '@typescript-eslint/parser'
+parserOptions:
+  project: ./tsconfig.json
+plugins:
+  - '@typescript-eslint'
+  - import
+extends:
+  - plugin:@typescript-eslint/recommended
+  - plugin:import/errors
+  - plugin:import/warnings
+  - plugin:import/typescript
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
 rules:
   brace-style:
     - warn
@@ -14,11 +31,14 @@ rules:
     - warn
     - smart
   indent:
+    - off
+  "@typescript-eslint/indent":
     - warn
-    - 2
+    - 4
   linebreak-style:
+    - off
+  no-console:
     - warn
-    - unix
   no-trailing-spaces:
     - warn
   no-else-return:
@@ -30,6 +50,8 @@ rules:
     - {
       ignoreEOLComments: true
     }
+  no-unused-vars:
+    - warn
   no-return-await:
     - error
   wrap-iife:
@@ -93,9 +115,6 @@ rules:
     - always
   no-lonely-if:
     - warn
-  multiline-comment-style:
-    - warn
-    - starred-block
   no-whitespace-before-property:
     - warn
   object-curly-spacing:
@@ -133,4 +152,6 @@ rules:
     - warn
     - never
   wrap-regex:
+    - warn
+  import/order:
     - warn
