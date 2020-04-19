@@ -18,8 +18,8 @@ email:
       username: "sender@somewhere.com"
       password: "password"
   content: # 邮件正文
-      from: "CCCAT Bot" # 发件人名称
-      subject: "CCCAT Bot's 报告" # 邮件主题
+      from: "Sender Name" # 发件人名称
+      subject: "Mail Subject" # 邮件主题
   sender: 'sender@somewhere.net' # 发件人地址，通常与server的username相同
 """
 
