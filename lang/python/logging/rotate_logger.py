@@ -7,7 +7,7 @@ import pathlib
 class Logger:
     def __init__(self):
         self.path = path.realpath(path.join(path.dirname(path.realpath(__file__)), '../'))
-        self.filename = 'cccat-bot.log'
+        self.filename = 'rollup.log'
         self.logger = self.setup_logger()
 
     def setup_logger(self):
