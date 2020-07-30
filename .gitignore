@@ -1,8 +1,9 @@
 ﻿# Visual Studio Code相关
 .vscode
 
-# Windows缩略图
+# 缩略图
 Thumbs.db
+.DS_STORE
 
 # 可执行文件
 *.exe
